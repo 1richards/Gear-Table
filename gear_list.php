@@ -40,7 +40,7 @@ $(function () {
         autoencode: true,
 		cellEdit : true,
 		cellsubmit : "remote",
-		cellurl : "edit_cells.php",
+		cellurl : "gear_edit_cells.php",
         caption: "Gear List"
     }); 
 }); 
