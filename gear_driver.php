@@ -78,7 +78,7 @@ if (mysqli_connect_errno($con))
 header("Content-type: text/xml;charset=utf-8");
  
 $s = "<?xml version='1.0' encoding='utf-8'?>";
-$s .=  "<rows>";
+$s .= "<rows>";
 $s .= "<page>".$page."</page>";
 $s .= "<total>".$total_pages."</total>";
 $s .= "<records>".$count."</records>";
@@ -87,12 +87,12 @@ $s .= "<records>".$count."</records>";
 while($row = mysqli_fetch_array($result2,MYSQLI_ASSOC)) {
     $s .= "<row id='". $row['id']."'>";            
     $s .= "<cell>". $row['id']."</cell>";
-	$s .= "<cell>". $row['item_name']."</cell>";
-	$s .= "<cell>". $row['category_name']."</cell>";
+	$s .= '<cell><![CDATA['. $row["item_name"].']]></cell>';
+	$s .= "<cell><![CDATA[". $row['category_name']."]]></cell>";
     $s .= "<cell>". $row['unit_weight']."</cell>";
     $s .= "<cell>". $row['inventory']."</cell>";
     $s .= "<cell>". $row['primary_user']."</cell>";
-    $s .= "<cell>". $row['brand']."</cell>";
+    $s .= "<cell><![CDATA[". $row['brand']."]]></cell>";
     $s .= "</row>";
 }
 $s .= "</rows>"; 

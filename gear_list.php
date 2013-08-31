@@ -60,7 +60,7 @@ $(function () {
 		$("#list").jqGrid('editGridRow',"new",{
 		height:280,
 		reloadAfterSubmit:true, 
-		closeAfterAdd : true
+		closeAfterAdd : false
 		});
 	});
 </script>   
@@ -70,7 +70,7 @@ $(function () {
 <script type="text/javascript">
 	$("#deleterow").click(function(){
 		var gr = jQuery("#list").jqGrid('getGridParam','selrow');
-		if( gr != null ) $("#list").jqGrid('delGridRow',gr,{reloadAfterSubmit:false});
+		if( gr != null ) $("#list").jqGrid('delGridRow',gr,{reloadAfterSubmit:true});
 		else alert("Please Select Row to delete!");
 	});
 </script>   
