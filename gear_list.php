@@ -20,19 +20,20 @@ $(function () {
         mtype: "GET",
         colNames: ["ID" , "Item Name", "Category", "Unit Weight", "Inventory", "Primary User", "Brand"],
         colModel: [
-            { name: "id", width: 55 },
-			{ name: "item_name", width: 90, editable:true },
-			{ name: "category_name", width:90, editable:true },
-            { name: "unit_weight", width: 90, editable:true },
-            { name: "inventory", width: 80, align: "left", editable:true },
-            { name: "primary_user", width: 80, align: "left", editable:true },
+            { name: "id", width: 25 },
+			{ name: "item_name", width: 120, editable:true },
+			{ name: "category_name", width:90, editable:true, edittype:"select", 
+				editoptions:{value:"Backpacks:Backpacks;Camp Gear:Camp Gear;Electronics:Electronics;Emergency Supplies:Emergency Supplies;Eyewear:Eyewear;Fire Supplies:Fire Supplies;Food:Food;Foot Warmth:Foot Warmth;Gloves and Mittens:Gloves and Mittens;Head Warmth:Head Warmth;Jackets:Jackets;Layers:Layers;Lights:Lights;Mess Kit:Mess Kit;Mountaineering Gear:Mountaineering Gear;Navigation:Navigation;Pants:Pants;Personal Items:Personal Items;Stuff Sacks:Stuff Sacks;Sleeping Gear:Sleeping Gear;Tents:Tents;Toiletries:Toiletries;Water:Water;Other:Other"}},
+            { name: "unit_weight", width: 45, editable:true, align:"center"},
+            { name: "inventory", width: 40, align: "center", editable:true },
+            { name: "primary_user", width: 50, align: "center", editable:true, edittype:"select", editoptions:{value:"Pat:Pat;Jessi:Jessi;N/A:N/A"} },
             { name: "brand", width: 80, align: "left", editable:true }
         ],
         pager: "#pager",
         rowNum: 30,
         rowList: [30, 100, 200],
 		height: 400,
-		width: 800,
+		width: 900,
         sortname: "id",
         sortorder: "desc",
         viewrecords: true,
@@ -41,14 +42,38 @@ $(function () {
 		cellEdit : true,
 		cellsubmit : "remote",
 		cellurl : "gear_edit_cells.php",
-        caption: "Gear List"
+        caption: "Gear List",
+		editurl:"gear.php"
     }); 
 }); 
+
+
 </script>
+
 
 </head>
 <body>
-   
+<!--Add Data-->
+<input type="BUTTON" id="adddata" value="Add">
+<script type="text/javascript">
+	$("#adddata").click(function(){
+		$("#list").jqGrid('editGridRow',"new",{
+		height:280,
+		reloadAfterSubmit:true, 
+		closeAfterAdd : true
+		});
+	});
+</script>   
+
+<!--Delete Row-->
+<input type="BUTTON" id="deleterow" value="Delete Selected">
+<script type="text/javascript">
+	$("#deleterow").click(function(){
+		var gr = jQuery("#list").jqGrid('getGridParam','selrow');
+		if( gr != null ) $("#list").jqGrid('delGridRow',gr,{reloadAfterSubmit:false});
+		else alert("Please Select Row to delete!");
+	});
+</script>   
 <table id="list"><tr><td></td></tr></table> 
     <div id="pager"></div> 
 
