@@ -1,0 +1,35 @@
+<html>
+<head><link rel="stylesheet" id="twentytwelve-style-css" href="http://thefreedomofthehills.com/wp-content/themes/twentytwelve/style.css?ver=3.5.1" type="text/css" media="all">
+<style type="text/css">
+td{
+text-align: right;
+padding: 3px 15px;
+}
+h2{
+color: rgb(68, 68, 68);
+display: block;
+font-weight:normal;
+font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+font-size: 18px;
+height: 26px;
+line-height: 26px;
+padding:10px;
+}
+</style>
+</head>
+<body>
+<h2>Add gear</h2>
+<form action="gear.php" method="post">
+<table>
+<tr><td>Name: <input type="text" name="item_name" /></td></tr>
+<tr><td>Category: <input type="text" name="category_name" /></td></tr>
+<tr><td>Inventory: <input type="text" name="inventory" /></td></tr>
+<tr><td>Weight: <input type="text" name="unit_weight" /></td></tr>
+<tr><td>Primary User: <select name="primary_user"><option name="Pat">Pat</option><option name="Jessi">Jessi</option></select></td></tr>
+<tr><td>Brand: <input type="text" name="brand" /></td></tr>
+<tr><td><input type="submit"></td></tr>
+</table>
+</form>
+
+</body>
+</html>
