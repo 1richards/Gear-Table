@@ -1,0 +1,1 @@
+This is a simple jqGrid table that I put together to organize and store information about my climbing and backpacking gear.  I have it embedded in my WordPress blog at http://thefreedomofthehills.com/gear . Enjoy!
